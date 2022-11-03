@@ -1,11 +1,8 @@
 public class stuff {
     public static void main(String[] args) {
-        String print = "Print Me!";
-
-        for(int i = 0; i <= print.length(); i++)
-        {
-            System.out.println(print.substring(i, i + 1));
-        }
+        StringLoops loops = new StringLoops();
+        System.out.println(loops.reverseString("hello!"));
+        System.out.println(loops.reverseString("Apples and bananas"));
 
     }
 }
