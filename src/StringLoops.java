@@ -2,18 +2,6 @@ public class StringLoops {
     // default constructor; no instance variables
     public StringLoops() {
     }
-
-    /* Returns the number of times "character" appears in "searchString"
-       This should be case sensitive!
-
-       Examples:
-       - if character = "a" and searchString = "Apples and bananas",
-         this method returns 4
-       - if character = "A" and searchString = "Apples and bananas",
-         this method returns 1
-       - if character = "!" and searchString = "Hello! Nice day!",
-         this method returns 2
-      */
     public int countCharacters(String character, String searchString) {
         int i = 0;
         int num;
@@ -26,12 +14,6 @@ public class StringLoops {
         return num;
     }
 
-    /* Returns the original string reversed
-
-     Examples:
-     - if origString = "hello!" this method returns "!olleh"
-     - if origString = "Apples and bananas" this method returns "sananab dna selppA"
-    */
     public String reverseString(String origString) {
         String unoReverse = "";
         for (int i = 0; i < origString.length(); i++) {
@@ -55,37 +37,42 @@ public class StringLoops {
         return aEIOU;
     }
 
-    /* Returns the number of times "searchString" appears in "origString";
-     matches should NOT be case sensitive.
-
-     Examples:
-     - if searchString = "an" and origString = "Apples and bananas",
-       this method returns 3: Apples and bananas
-     - if searchString = "tat" and origString = "Ratatattat",
-       this method returns 3: Ratatattat (note that two overlap)
-     - if searchString = "lower" and origString = "sunflower",
-       this method returns 1: sunflower
-     - if searchString = "haha" and origString = "Hahahahaha",
-       this method returns 4: Hahahahaha
- (note that two overlap)
-     - if searchString = "HAHA" and origString = "Hahahahaha",
-       this method returns 4: Hahahahaha (note that two overlap)
-     - if searchString = "rain" and origString = "it’s the brain drain pain train",
-       this method returns 3: it’s the brain drain pain train
-     - if searchString = "was" and origString = "I was about to call you, wasn’t I?",
-       this method returns 2
-     - if searchString = "but" and origString = "I was about to call you, wasn’t I?",
-       this method returns 0
-     - if searchString = "i" and origString = "Supercalifragilisticexpialidocious",
-       this method returns 7
-    */
     public int countString(String searchString, String origString)
     {
-        /* to be implemented */
+        int i;
+        int y = searchString.length();
+        int x = 0;
+        String s = searchString.toLowerCase();
+        String o = origString.toLowerCase();
+        for(i = 0; i <= o.length() - s.length(); i++) {
+            String match = o.substring(i, i + y);
+                if(s.equals(match)) {
+                    x++;
+                }
+            }
+        return x;
     }
 
+    public String removeString(String searchString, String origString)
+    {
+        int i = 0;
+        String newStr = origString;
+        while(newStr.indexOf(searchString) != -1){
+            i = newStr.indexOf(searchString);
+            newStr = newStr.substring(0, i) + newStr.substring(i + searchString.length());
+        }
+        return newStr;
+    }
 
-
+    public String replaceCharacter(String searchChar, String origStr, String replaceChar) {
+        int i = 0;
+        String newStr = origStr;
+        while (newStr.indexOf(searchChar) != -1) {
+            i = newStr.indexOf(searchChar);
+            newStr = newStr.substring(0, i) + replaceChar + newStr.substring(i + 1 );
+        }
+        return newStr;
+    }
 }
 
 
